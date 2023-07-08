@@ -5,11 +5,17 @@
 // @id               telegramunblocker@https://github.com/NRSA-devs/telegramunblocker
 // @description      Redirect t.me to telegram.me
 // @author           rushiranpise - NRSA-devs
-// @match            *://t.me/*
-// @grant             none
-// @run-at         document-start
-// @run-at         document-end
-// @run-at         document-idle
+// @match           *://*.t.me/*
+// @grant           none
 // ==/UserScript==
 
-document.location = document.URL.replace('t.me','telegram.me');
+(function() {
+    'use strict';
+
+    var currentUrl = window.location.href;
+    var newUrl = currentUrl.replace(/t\.me\//, 'telegram.me/');
+
+    if (currentUrl !== newUrl) {
+        window.location.href = newUrl;
+    }
+})();
