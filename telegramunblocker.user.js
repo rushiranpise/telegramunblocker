@@ -13,7 +13,7 @@
     'use strict';
 
     var currentUrl = window.location.href;
-    var newUrl = currentUrl.replace(/t\.me\//, 'telegram.me/');
+    var newUrl = currentUrl.replace(/t\.me\/(.+)/, 'telegram.me/$1');
 
     if (currentUrl !== newUrl) {
         window.location.href = newUrl;
